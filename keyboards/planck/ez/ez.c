@@ -245,6 +245,7 @@ void eeconfig_init_kb(void) {  // EEPROM is getting reset!
 #    define PLANCK_EZ_LED_ADJUST 6
 #endif
 
+#ifndef DISABLE_LAYER_LED
 layer_state_t layer_state_set_kb(layer_state_t state) {
     planck_ez_left_led_off();
     planck_ez_right_led_off();
@@ -266,6 +267,8 @@ layer_state_t layer_state_set_kb(layer_state_t state) {
     }
     return state;
 }
+#endif
+
 #endif
 
 bool process_record_kb(uint16_t keycode, keyrecord_t *record) {
